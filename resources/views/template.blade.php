@@ -26,9 +26,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/blog">Blog</a>
         </li>
+
+        @if(!session()->get("logged", false))
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        @endif
+
+        @if(session()->get("logged", false))
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
+        @endif
+
       </ul>
     </div>
   </div>

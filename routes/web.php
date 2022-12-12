@@ -18,21 +18,21 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('template');
-}) ->name('homepage')->middleware(['withauth']);
+}) ->name('homepage');
 
 Route::any('/login', [AuthController::class, 'login']) -> name('login')->middleware(['noauth']);
 Route::any('/logout', [AuthController::class, 'logout']) ->name('logout')->middleware(['withauth']);
 
 Route::prefix('produk')->group(function(){
     Route::get('/',[ProdukController::class, "index"])->name("produk.index");
-    Route::get('/create',[ProdukController::class, "create"])->name("produk.create");
-    Route::get('/edit/{id}',[ProdukController::class, "edit"])->name("produk.edit");
+    Route::get('/create',[ProdukController::class, "create"])->name("produk.create")->middleware(['withauth']);
+    Route::get('/edit/{id}',[ProdukController::class, "edit"])->name("produk.edit")->middleware(['withauth']);
 
 
-    Route::post('/insert', [ProdukController::class, "insert"])->name("produk.insert");
-    Route::put('/update/{id}',[ProdukController::class, "update"])->name("produk.update");
+    Route::post('/insert', [ProdukController::class, "insert"])->name("produk.insert")->middleware(['withauth']);
+    Route::put('/update/{id}',[ProdukController::class, "update"])->name("produk.update")->middleware(['withauth']);
 
-    Route::get('/delete/{id}', [ProdukController::class, "delete"])->name('produk.delete');
+    Route::get('/delete/{id}', [ProdukController::class, "delete"])->name('produk.delete')->middleware(['withauth']);
 });
 
 Route::prefix('blog')->group(function(){

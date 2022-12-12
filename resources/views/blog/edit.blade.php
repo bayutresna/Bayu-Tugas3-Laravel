@@ -29,7 +29,7 @@
                     <textarea name="content" class="content border-2 border-gray-500">{{$blog->konten}}</textarea>
                 </div>
                 <div class="flex p-1 pt-3">
-                    <button role="submit" class="btn btn-outline-primary" required>Submit</button>
+                  <button type="submit" @class(["btn", "btn-primary"])>Submit</button>
                 </div>
                 <input type="hidden" value="{{$blog->id}}">
             </form>

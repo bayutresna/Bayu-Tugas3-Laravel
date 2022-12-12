@@ -28,7 +28,7 @@
                   <textarea name="content" class="content border-2 border-gray-500" require></textarea>
               </div>
               <div class="flex p-1">
-                  <button role="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+                <button type="submit" @class(["btn", "btn-primary"])>Submit</button>
               </div>
           </form>
       </div>
