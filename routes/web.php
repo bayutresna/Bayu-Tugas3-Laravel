@@ -21,6 +21,7 @@ Route::get('/', function () {
 }) ->name('homepage');
 
 Route::any('/login', [AuthController::class, 'login']) -> name('login')->middleware(['noauth']);
+Route::any('/register', [AuthController::class, 'register']) -> name('register')->middleware(['noauth']);
 Route::any('/logout', [AuthController::class, 'logout']) ->name('logout')->middleware(['withauth']);
 
 Route::prefix('produk')->group(function(){

@@ -8,6 +8,19 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    function register(Request $request){
+        if($request->method()=='GET'){
+            return view('register');
+        }
+
+        $payload = [
+            "nama" => $request->input("nama"),
+            "email" => $request->input("email"),
+            "password" => $request->input("password"),
+        ];
+        Pengguna::query()->create($payload);
+        return redirect()->route('login');
+    }
     function Login(Request $request){
         if($request->method() == 'GET'){
             return view('login');

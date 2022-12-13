@@ -2,6 +2,7 @@
 @section('title','Tugas 2 Produk')
 @section('konten_master')
 @parent
+
 <form action="{{ route('produk.update', ["id" => $produk->id]) }}" method = "post" enctype="multipart/form-data">
     @method("put")
     @csrf

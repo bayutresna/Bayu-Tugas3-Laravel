@@ -4,17 +4,17 @@
 @section('konten_master')
 @parent
 
-@if($errors->any())
-    <h1 style="color:blue; background:red">
-        {{$errors->first()}}
-    </h1>
-@endif
-
-<form action="{{route('login')}}" method="post">
+<form action="{{route('register')}}" method="post">
     @csrf
+
+  <div class="mb-3">
+    <label for="" class="form-label">Nama Lengkap</label>
+    <input class="form-control" id="nama" name="nama">
+  </div>
+
   <div class="mb-3">
     <label for="" class="form-label">Email</label>
-    <input class="form-control" id="username" name="email">
+    <input class="form-control" id="email" name="email">
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Password</label>
@@ -22,10 +22,5 @@
   </div>
   <button type="submit" class="btn btn-primary" >Submit</button>
 </form>
-
-<div class="mb-3">
-  <label for="" class="form-label">Belum Punya Akun?</label>
-   <a  href="{{ route('register') }}">Buat dulu yuk!</a>
-</div>
-
 @endsection
+
